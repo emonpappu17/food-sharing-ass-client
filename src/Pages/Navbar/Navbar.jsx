@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router";
+import DarkModeToggleBtn from "../../Components/DarkModeToggleBtn";
 
 const Navbar = () => {
     const navLinks = <>
@@ -56,6 +57,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {/* <a className="btn">Button</a> */}
+                    <DarkModeToggleBtn></DarkModeToggleBtn>
                     <Link to='/login' className="btn">Login</Link>
                     <Link to='/register' className="btn">Register</Link>
                 </div>

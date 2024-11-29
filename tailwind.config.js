@@ -9,9 +9,16 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [
-    require('daisyui'),
-    require('preline/plugin'),
-  ],
+  // daisyui: {
+  //   themes: [],
+  // },
+  daisyui: {
+    themes: ["light", "dark"],
+  },
+  // plugins: [
+  //   require('daisyui'),
+  //   require('preline/plugin'),
+  // ],
+  plugins: [require("daisyui")],
 }
 

@@ -1,11 +1,9 @@
+import DarkModeToggleBtn from "../../Components/DarkModeToggleBtn";
 import DarkModeToggle from "../../Hooks/DarkModeToggle";
 
 const Register = () => {
     return (
         <div>
-            <h1>register</h1>
-            <DarkModeToggle />
-
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-900 dark:bg-gray-50 text-gray-100 dark:text-gray-800">
                 <div className="mb-8 text-center">
                     <h1 className="my-3 text-4xl font-bold">Sign in</h1>
