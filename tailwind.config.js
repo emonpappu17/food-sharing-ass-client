@@ -7,7 +7,14 @@ export default {
     './node_modules/preline/preline.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+      scale: {
+        110: "1.10",
+      },
+      transitionDuration: {
+        1000: "1000ms",
+      },
+    },
   },
   // daisyui: {
   //   themes: [],

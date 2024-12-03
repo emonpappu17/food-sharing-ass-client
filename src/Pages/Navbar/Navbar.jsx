@@ -8,9 +8,25 @@ import { MdOutlineEmail } from "react-icons/md";
 import Swal from "sweetalert2";
 import logo from '../../assets/logo.png'
 import { RiMenuLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+
+    const [scrollY, setScrollY] = useState(0);
+
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     const navLinks = <>
         <li> <NavLink to='/' className={({ isActive }) =>
             isActive ? "text-[#85B935]" : ""
@@ -54,28 +70,16 @@ const Navbar = () => {
     }
 
     return (
-            <div className="navbar bg-base-100 container mx-auto">
+        <div className={`z-10 fixed w-full ${scrollY > 0 ? 'backdrop-blur-xl backdrop-filter bg-opacity-0 bg-white' : ''}`}>
+            <div className="navbar mx-auto container">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className=" lg:hidden">
-                            {/* <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg> */}
                             <RiMenuLine className=" text-3xl  mr-2 hover:text-[#85B935]" />
-
                         </div>
                         <ul
                             tabIndex={0}
-                            className="font-semibold menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-3">
+                            className="font-semibold menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow space-y-3">
                             {
                                 navLinks
                             }
@@ -95,8 +99,6 @@ const Navbar = () => {
                     <div className="tooltip tooltip-bottom mr-4" data-tip="Mode">
                         <DarkModeToggleBtn></DarkModeToggleBtn>
                     </div>
-                    {/* <Link to='/login' className="btn">Login</Link>
-                    <Link to='/register' className="btn">Register</Link> */}
                     {/* profile */}
                     <div>
                         <div className="dropdown dropdown-hover dropdown-bottom dropdown-end">
@@ -141,6 +143,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+        </div>
     );
 };
 
