@@ -9,11 +9,14 @@ import ManageMyFoods from "../Pages/ManageMyFoods/ManageMyFoods";
 import MyFoodsRequest from "../Pages/MyFoodsRequest/MyFoodsRequest";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import ViewDetail from "../Pages/ViewDetails/ViewDetail";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -42,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/viewDetail',
+                element: <ViewDetail></ViewDetail>
             }
         ]
     },

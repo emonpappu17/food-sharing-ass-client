@@ -96,7 +96,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="tooltip tooltip-bottom mr-4" data-tip="Mode">
+                    <div className="tooltip tooltip-bottom mr-4" data-tip="Dark/Light">
                         <DarkModeToggleBtn></DarkModeToggleBtn>
                     </div>
                     {/* profile */}

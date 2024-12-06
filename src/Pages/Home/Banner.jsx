@@ -21,12 +21,12 @@ const Banner = () => {
                 prev: {
                     shadow: true,
                     translate: ['-125%', 0, -800],
-                    rotate: [0, 0, -90],
+                    // rotate: [0, 0, -90],
                 },
                 next: {
                     shadow: true,
                     translate: ['125%', 0, -800],
-                    rotate: [0, 0, 90],
+                    // rotate: [0, 0, 90],
                 },
             }}
             modules={[EffectCreative, Autoplay]}

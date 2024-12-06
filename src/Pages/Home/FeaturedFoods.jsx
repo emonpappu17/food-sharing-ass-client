@@ -3,7 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import loader from '../../assets/loader.json'
 import Lottie from "lottie-react";
 import useFoods from "../../Hooks/useFoods";
-import axios from "axios";
+// import axios from "axios";
+import Card from "./Card";
+import { Link } from "react-router";
 
 const FeaturedFoods = () => {
     // const getFoods = async () => {
@@ -35,10 +37,19 @@ const FeaturedFoods = () => {
     if (error) return 'An error has occurred: ' + error.message
     console.log(data);
 
-
     return (
-        <div>
-
+        <div className="container mx-auto my-10">
+            <h1 className="text-5xl font-bold text-center mb-10">Featured <span className="text-[#85B935]">Foods</span></h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 px-4 lg:px-0">
+                {
+                    data.map(card => <Card key={card._id} card={card}></Card>)
+                }
+            </div>
+            <div className="flex justify-center">
+                <Link to='/availableFood'>
+                    <button className="mt-10 btn bg-[#85B935] w-full dark:text-white text-slate-900">Show All </button>
+                </Link>
+            </div>
         </div>
     );
 };
