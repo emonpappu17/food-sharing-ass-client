@@ -11,6 +11,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ViewDetail from "../Pages/ViewDetails/ViewDetail";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import { foodDetail } from "../Hooks/Foods";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +48,10 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/viewDetail',
+                path: '/viewDetail/:id',
+                loader: async ({ params }) => {
+                    return await foodDetail(params.id)
+                },
                 element: <ViewDetail></ViewDetail>
             }
         ]

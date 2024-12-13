@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 // import axios from "axios";
 import loader from '../../assets/loader.json'
 import Lottie from "lottie-react";
-import useFoods from "../../Hooks/useFoods";
+import useFoods from "../../Hooks/Foods";
 // import axios from "axios";
 import Card from "./Card";
 import { Link } from "react-router";
@@ -35,7 +35,7 @@ const FeaturedFoods = () => {
     if (isPending) return <div className="flex items-center justify-center h-20"><Lottie className="w-20" animationData={loader}></Lottie></div>
 
     if (error) return 'An error has occurred: ' + error.message
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className="container mx-auto my-10">
