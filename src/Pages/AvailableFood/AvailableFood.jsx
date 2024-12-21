@@ -5,6 +5,7 @@ import { usedAvailableFoodsSort } from "../../Hooks/Foods";
 import { useState } from "react";
 
 import AvailableCard from "./AvailableCard";
+import PageTitle from "../../Components/PageTitle";
 
 const AvailableFood = () => {
     const [sort, setSort] = useState('foodName');
@@ -20,6 +21,7 @@ const AvailableFood = () => {
 
     return (
         <div className="container mx-auto">
+            <PageTitle title={'AvailableFood'}></PageTitle>
             <div className="flex justify-between items-center my-5">
                 <h1 className="">Available food: {data?.length}</h1>
                 <div className="flex items-center ">

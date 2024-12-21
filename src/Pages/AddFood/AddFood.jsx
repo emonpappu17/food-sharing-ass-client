@@ -4,6 +4,7 @@ import { addFood } from "../../Hooks/Foods";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
 import adding from '../../assets/adding.json'
+import PageTitle from "../../Components/PageTitle";
 
 const AddFood = () => {
     const { user } = useAuth()
@@ -114,7 +115,7 @@ const AddFood = () => {
         const form = e.target
         const foodName = form.foodName.value
         const foodImage = form.foodImg.value
-        const foodQuantity = form.foodQuantity.value
+        const foodQuantity = Number(form.foodQuantity.value)
         const pickupLocation = form.location.value
         const expiredDateTime = form.expired.value
         const additionalNotes = form.notes.value
@@ -123,12 +124,13 @@ const AddFood = () => {
         const donatorEmail = user.email
         const foodStatus = "available"
         const food = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, donatorImage, donatorName, donatorEmail, foodStatus }
-        // console.log(food);
+        console.log(foodQuantity);
         mutation.mutate(food, { onSuccess: e.target.reset() })
     }
 
     return (
         <section className="p-6  mb-10 ">
+            <PageTitle title={'AddFood'}></PageTitle>
             <h1 className="text-5xl font-bold text-center mb-10">Add<span className="text-[#85B935]">Food</span></h1>
             <form onSubmit={handleSubmit} className="container flex flex-col mx-auto space-y-12 ">
                 <fieldset className="grid grid-cols-4 gap-6 ">

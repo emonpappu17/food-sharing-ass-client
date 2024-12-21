@@ -12,6 +12,7 @@ import Register from "../Pages/Register/Register";
 import ViewDetail from "../Pages/ViewDetails/ViewDetail";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import { foodDetail } from "../Hooks/Foods";
+import PrivateRoute from "../Providers/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,15 +30,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addFood',
-                element: <AddFood></AddFood>
+                element: <PrivateRoute> <AddFood></AddFood></PrivateRoute>
             },
             {
                 path: '/manageMyFood',
-                element: <ManageMyFoods></ManageMyFoods>
+                element: <PrivateRoute><ManageMyFoods></ManageMyFoods></PrivateRoute>
             },
             {
                 path: '/myFoodRequest',
-                element: <MyFoodsRequest></MyFoodsRequest>
+                element: <PrivateRoute><MyFoodsRequest></MyFoodsRequest></PrivateRoute>
             },
             {
                 path: '/login',
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
                 loader: async ({ params }) => {
                     return await foodDetail(params.id)
                 },
-                element: <ViewDetail></ViewDetail>
+                element: <PrivateRoute><ViewDetail></ViewDetail></PrivateRoute>
             }
         ]
     },

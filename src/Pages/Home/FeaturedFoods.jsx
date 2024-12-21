@@ -18,7 +18,7 @@ const FeaturedFoods = () => {
     //         return [];
     //     }
     // }
-    // const url = 'http://localhost:5000/foods'
+    // const url = 'https://food-sharing-ass-server.vercel.app/foods'
 
     //Tanstack Query
     const { isPending, error, data } = useQuery({

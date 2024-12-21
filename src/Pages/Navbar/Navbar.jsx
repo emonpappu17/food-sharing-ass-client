@@ -59,8 +59,8 @@ const Navbar = () => {
                 logOut()
                     .then(() => {
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
+                            title: "Logout!",
+                            text: "Your account logout successfully.",
                             icon: "success"
                         });
                     })
